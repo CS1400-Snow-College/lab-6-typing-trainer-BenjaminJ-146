@@ -59,3 +59,7 @@ Console.WriteLine($"\nYour number of errors: {errors}");
 
 // Displays the user's elapsed time
 Console.WriteLine($"Your elapsed time: {elapsedSeconds} seconds");
+
+// Displays the user's accuracy
+double accuracy = (((phrase.Length + 1) - errors) / phrase.Length);
+Console.WriteLine($"Your accuracy: {accuracy}");
