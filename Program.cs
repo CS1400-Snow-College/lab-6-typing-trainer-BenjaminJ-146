@@ -61,5 +61,7 @@ Console.WriteLine($"\nYour number of errors: {errors}");
 Console.WriteLine($"Your elapsed time: {elapsedSeconds} seconds");
 
 // Displays the user's accuracy
-double accuracy = (((phrase.Length + 1) - errors) / phrase.Length);
-Console.WriteLine($"Your accuracy: {accuracy}");
+double numerator = ((phrase.Length + 1) - errors);
+double denominator = (phrase.Length + 1);
+int accuracy = (int)((numerator / denominator) * 100);
+Console.WriteLine($"Your accuracy: {accuracy}%");
