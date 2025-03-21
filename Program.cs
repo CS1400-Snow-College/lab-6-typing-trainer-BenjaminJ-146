@@ -1,4 +1,5 @@
 ﻿// Benjamin Johnson, Lab 6 Typing Trainer, March 20th
+using System.Diagnostics;
 Console.Clear();
 
 // Greeting and Instructions
@@ -26,6 +27,10 @@ Console.Write(phrase);
 // Sets the cursors position to the start of the phrase
 Console.SetCursorPosition(0, 4); 
 
+// Stopwatch Start
+Stopwatch stopwatch = new Stopwatch();
+stopwatch.Start();
+
 int errors = 0;
 for (int i = 0; i < phrase.Length; i++)
 {
@@ -45,5 +50,12 @@ for (int i = 0; i < phrase.Length; i++)
     }
 }
 
+// Stopwatch end
+stopwatch.Stop();
+double elapsedSeconds = stopwatch.ElapsedMilliseconds / 1000.0;
+
 // Displays the user's error count
 Console.WriteLine($"\nYour number of errors: {errors}");
+
+// Displays the user's elapsed time
+Console.WriteLine($"Your elapsed time: {elapsedSeconds} seconds");
