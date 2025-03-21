@@ -26,7 +26,7 @@ Console.Write(phrase);
 // Sets the cursors position to the start of the phrase
 Console.SetCursorPosition(0, 4); 
 
-int mistakes = 0;
+int errors = 0;
 for (int i = 0; i < phrase.Length; i++)
 {
     char currentKey = Console.ReadKey(true).KeyChar; // Storing the user's key press
@@ -38,9 +38,12 @@ for (int i = 0; i < phrase.Length; i++)
     }
     else // The incorrect character was pressed
     {
-        mistakes++;
+        errors++;
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write(phrase[i]);
         Console.ForegroundColor = ConsoleColor.White;
     }
 }
+
+// Displays the user's error count
+Console.WriteLine($"\nYour number of errors: {errors}");
