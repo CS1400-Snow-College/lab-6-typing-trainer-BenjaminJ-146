@@ -11,7 +11,7 @@ You'll be given a short story to type out. If you make a mistake, you will not b
 // Phrases for the reader to type
 string[] phrases = new string[5] {
     "The clock struck twelve as the train rumbled through the foggy valley. Emily gripped her ticket, heart racing. A shadowy figure approached, whispering, \"This isn\'t your train.\" But the doors had locked. The train kept moving, faster and faster, until the stars blurred.",
-    "James found an old typewriter in the attic. Each key he pressed revealed a hidden letter. M-E-E-T-M-E-A-T-D-A-W-N. Was someone leaving him a message? He checked the paper again, but the words had vanished. Only the sound of typing remained.",
+    "James found an old typewriter in the attic. Each key he pressed revealed a hidden letter. MEETMEATDAWN. Was someone leaving him a message? He checked the paper again, but the words had vanished. Only the sound of typing remained.",
     "Waves crashed against the shore as Lena climbed the spiral staircase. The lighthouse beacon flickered, casting eerie shadows. A sudden gust of wind slammed the door shut. A whisper echoed, \"The light must never go out.\" But the oil was nearly gone.",
     "Marcus tapped his smartwatch. The screen glowed: SYSTEM ERROR—TIME LOOP ENGAGED. He blinked. The coffee cup tipped over again. The phone rang again. He had lived this moment before. Could he break the cycle before it repeated forever?",
     "Ella ran her fingers along the stone wall, searching for an exit. The labyrinth twisted endlessly. A distant growl made her quicken her pace. Then, a torch flickered; someone else was there. \"Help me!\" she called. The flame went out."
@@ -26,4 +26,21 @@ Console.Write(phrase);
 // Sets the cursors position to the start of the phrase
 Console.SetCursorPosition(0, 4); 
 
-Console.ReadKey();
+int mistakes = 0;
+for (int i = 0; i < phrase.Length; i++)
+{
+    char currentKey = Console.ReadKey(true).KeyChar; // Storing the user's key press
+    if (phrase[i] == currentKey) // The correct key was pressed
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write(phrase[i]);
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+    else // The incorrect character was pressed
+    {
+        mistakes++;
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write(phrase[i]);
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+}
